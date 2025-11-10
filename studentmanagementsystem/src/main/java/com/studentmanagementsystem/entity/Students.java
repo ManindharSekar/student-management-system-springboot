@@ -10,9 +10,9 @@ import jakarta.persistence.OneToOne;
 
 @Entity
 public class Students {
-	
+
 	@Id
-	@GeneratedValue(strategy =GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 	String regNo;
 	int age;
@@ -22,10 +22,10 @@ public class Students {
 	String fatherName;
 	String motherName;
 	String address;
-	
+
 	@OneToOne
-	Class classId;
-	
+	Classes classId;
+
 	public Integer getId() {
 		return id;
 	}
@@ -98,15 +98,12 @@ public class Students {
 		this.address = address;
 	}
 
-	public Class getClassId() {
+	public Classes getClassId() {
 		return classId;
 	}
 
-	public void setClassId(Class classId) {
+	public void setClassId(Classes classId) {
 		this.classId = classId;
 	}
-
-	
-	
 
 }

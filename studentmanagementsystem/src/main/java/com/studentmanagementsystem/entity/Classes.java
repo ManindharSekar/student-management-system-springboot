@@ -1,66 +1,88 @@
 package com.studentmanagementsystem.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Class {
-	
+public class Classes {
+
 	@Id
-	@GeneratedValue(strategy =GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
+	@Column(unique = true)
 	String classes;
+	String Section;
 	String Subject1;
 	String Subject2;
 	String Subject3;
 	String Subject4;
 	String Subject5;
-	
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getClasses() {
 		return classes;
 	}
+
 	public void setClasses(String classes) {
 		this.classes = classes;
 	}
+
 	public String getSubject1() {
 		return Subject1;
 	}
+
 	public void setSubject1(String subject1) {
 		Subject1 = subject1;
 	}
+
 	public String getSubject2() {
 		return Subject2;
 	}
+
 	public void setSubject2(String subject2) {
 		Subject2 = subject2;
 	}
+
 	public String getSubject3() {
 		return Subject3;
 	}
+
 	public void setSubject3(String subject3) {
 		Subject3 = subject3;
 	}
+
 	public String getSubject4() {
 		return Subject4;
 	}
+
 	public void setSubject4(String subject4) {
 		Subject4 = subject4;
 	}
+
 	public String getSubject5() {
 		return Subject5;
 	}
+
 	public void setSubject5(String subject5) {
 		Subject5 = subject5;
 	}
 
-	
+	public String getSection() {
+		return Section;
+	}
+
+	public void setSection(String section) {
+		Section = section;
+	}
 
 }

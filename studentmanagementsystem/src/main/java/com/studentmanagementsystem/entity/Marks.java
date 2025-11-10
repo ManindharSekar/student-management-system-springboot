@@ -19,10 +19,10 @@ public class Marks {
 	int mark4;
 	int mark5;
 	int total;
-	
+
 	@ManyToOne
 	Students studentId;
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -94,7 +94,5 @@ public class Marks {
 	public void setStudentId(Students studentId) {
 		this.studentId = studentId;
 	}
-
-	
 
 }
