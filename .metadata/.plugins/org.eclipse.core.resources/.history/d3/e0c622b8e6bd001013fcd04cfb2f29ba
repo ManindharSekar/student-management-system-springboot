@@ -1,0 +1,6 @@
+spring.application.name=StudentManagementSystem
+
+spring.datasource.username=
+spring.datasource.password=
+spring.datasource.url=
+spring.jpa.

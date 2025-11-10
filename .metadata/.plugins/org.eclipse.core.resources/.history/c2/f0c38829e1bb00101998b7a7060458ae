@@ -1,0 +1,5 @@
+package com.studentmanagementsystem.entity;
+
+public class Marks {
+
+}
