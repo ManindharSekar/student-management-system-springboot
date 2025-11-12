@@ -27,7 +27,31 @@ public class StudentsService {
 	public Students getStudent(Long id) {
 		// TODO Auto-generated method stub
 		return studentRepository.findById(id)
-				.orElseThrow(() -> new RecordNotFoundException("no record found in this " + id));
+				.orElseThrow(() -> new RecordNotFoundException("no student found in this id=" + id));
+	}
+
+	public Students updateStudent(Long id, Students student) {
+		// TODO Auto-generated method stub
+		Students updateStudent = studentRepository.findById(id)
+				.orElseThrow(() -> new RecordNotFoundException("no student fount in this id=" + id));
+		updateStudent.setRegNo(student.getRegNo());
+		updateStudent.setName(student.getName());
+		updateStudent.setAge(student.getAge());
+		updateStudent.setAddress(student.getAddress());
+		updateStudent.setGender(student.getGender());
+		updateStudent.setFatherName(student.getFatherName());
+		updateStudent.setMotherName(student.getMotherName());
+		updateStudent.setDateOfBirth(student.getDateOfBirth());
+		updateStudent.setPhoneNo(student.getPhoneNo());
+
+		return studentRepository.save(updateStudent);
+	}
+
+	public ResponseEntity<Students> deleteStudent(Students id) {
+		// TODO Auto-generated method stub
+		studentRepository.delete(id);
+
+		return new ResponseEntity("student deleted", HttpStatus.OK);
 	}
 
 }

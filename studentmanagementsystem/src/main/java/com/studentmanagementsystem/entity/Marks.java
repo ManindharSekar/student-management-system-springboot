@@ -19,6 +19,9 @@ public class Marks {
 	int mark4;
 	int mark5;
 	int total;
+	int year;
+
+	
 
 	@ManyToOne
 	Students studentId;
@@ -93,6 +96,13 @@ public class Marks {
 
 	public void setStudentId(Students studentId) {
 		this.studentId = studentId;
+	}
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
 	}
 
 }
