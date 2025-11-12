@@ -11,7 +11,7 @@ import jakarta.persistence.ManyToOne;
 public class Marks {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer id;
+	Long id;
 	String semester;
 	int mark1;
 	int mark2;
@@ -23,11 +23,11 @@ public class Marks {
 	@ManyToOne
 	Students studentId;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

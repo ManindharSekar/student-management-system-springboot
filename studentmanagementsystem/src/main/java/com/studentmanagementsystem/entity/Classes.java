@@ -11,7 +11,7 @@ public class Classes {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer id;
+	Long id;
 	@Column(unique = true)
 	String classes;
 	String Section;
@@ -21,11 +21,11 @@ public class Classes {
 	String Subject4;
 	String Subject5;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

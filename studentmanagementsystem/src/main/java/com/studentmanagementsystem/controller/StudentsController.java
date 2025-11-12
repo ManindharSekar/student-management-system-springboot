@@ -1,0 +1,36 @@
+package com.studentmanagementsystem.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.studentmanagementsystem.entity.Students;
+import com.studentmanagementsystem.service.StudentsService;
+
+@RestController
+@RequestMapping("students")
+public class StudentsController {
+	@Autowired
+	private StudentsService studentsService;
+	
+	@PostMapping("/addStudent")
+	public ResponseEntity<String> addStudent(@RequestBody Students student ) {
+		return studentsService.addStudent(student);
+	}
+	
+	@GetMapping("/getStudent/{id}")
+	public Students getStudent(@PathVariable Long id){
+		return studentsService.getStudent(id);
+	}
+	
+	
+	
+	
+	
+
+}
