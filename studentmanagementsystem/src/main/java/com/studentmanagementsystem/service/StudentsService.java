@@ -1,5 +1,6 @@
 package com.studentmanagementsystem.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,22 @@ public class StudentsService {
 		studentRepository.delete(id);
 
 		return new ResponseEntity("student deleted", HttpStatus.OK);
+	}
+
+	public List<Students> searchStudentByName(String name) {
+		// TODO Auto-generated method stub
+		return studentRepository.findByNameContainingIgnoreCase(name);
+		
+	}
+
+	public ResponseEntity<Students> searchStudentByRegNo(String regNo) {
+		// TODO Auto-generated method stub
+		Students student = studentRepository.findByRegNo(regNo);
+		
+		if(student==null) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(student);
 	}
 
 }

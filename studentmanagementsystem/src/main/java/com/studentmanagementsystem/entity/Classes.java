@@ -1,25 +1,28 @@
 package com.studentmanagementsystem.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Classes {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
+	private Long id;
 	@Column(unique = true)
-	String classes;
-	String Section;
-	String Subject1;
-	String Subject2;
-	String Subject3;
-	String Subject4;
-	String Subject5;
+	private String classes;
+	private String Section;
+	private String Subject1;
+	private String Subject2;
+	private String Subject3;
+	private String Subject4;
+	private String Subject5;
+	
 
 	public Long getId() {
 		return id;

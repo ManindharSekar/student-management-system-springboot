@@ -1,12 +1,18 @@
 package com.studentmanagementsystem.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -14,20 +20,24 @@ public class Students {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
+	private Long id;
 	@Column(unique = true)
-	String regNo;
-	String name;
-	int age;
-	LocalDate dateOfBirth;
-	String gender;
-	String phoneNo;
-	String fatherName;
-	String motherName;
-	String address;
+	private String regNo;
+	private String name;
+	private int age;
+	private LocalDate dateOfBirth;
+	private String gender;
+	private String phoneNo;
+	private String fatherName;
+	private String motherName;
+	private String address;
 
-	@OneToOne
+	@ManyToOne(cascade=CascadeType.MERGE)  
 	Classes classId;
+	
+	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Marks> marksList;
 
 	public Long getId() {
 		return id;
@@ -116,5 +126,7 @@ public class Students {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	
 
 }

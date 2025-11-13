@@ -1,9 +1,12 @@
 package com.studentmanagementsystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 
@@ -11,20 +14,28 @@ import jakarta.persistence.ManyToOne;
 public class Marks {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
-	String semester;
-	int mark1;
-	int mark2;
-	int mark3;
-	int mark4;
-	int mark5;
-	int total;
-	int year;
-
-	
+	private Long id;
+	private String semester;
+	private int mark1;
+	private int mark2;
+	private int mark3;
+	private int mark4;
+	private int mark5;
+	private int total;
+	private int year;
 
 	@ManyToOne
-	Students studentId;
+    @JoinColumn(name = "student_id")
+    @JsonBackReference
+    private Students student;
+
+	public Students getStudent() {
+		return student;
+	}
+
+	public void setStudent(Students student) {
+		this.student = student;
+	}
 
 	public Long getId() {
 		return id;
@@ -90,13 +101,7 @@ public class Marks {
 		this.total = total;
 	}
 
-	public Students getStudentId() {
-		return studentId;
-	}
-
-	public void setStudentId(Students studentId) {
-		this.studentId = studentId;
-	}
+	
 	public int getYear() {
 		return year;
 	}

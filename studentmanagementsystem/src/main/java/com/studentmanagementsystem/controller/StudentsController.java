@@ -1,5 +1,7 @@
 package com.studentmanagementsystem.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.studentmanagementsystem.entity.Students;
@@ -39,6 +42,16 @@ public class StudentsController {
 	public  String deleteStudent(@PathVariable Students id) {
 		 studentsService.deleteStudent(id);
 		 return "student deleted";
+	}
+	
+	@GetMapping("/searchByName")
+	public List<Students> searchStudentByName(@RequestParam String name){
+		return studentsService.searchStudentByName(name);
+	}
+	
+	@GetMapping("/searchByRegNo")
+	public ResponseEntity<Students> searchStudentByRegNo(@RequestParam String regNo) {
+		return studentsService.searchStudentByRegNo(regNo);
 	}
 		
 	
